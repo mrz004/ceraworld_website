@@ -16,7 +16,11 @@ export default function Component({ isOpen, setIsOpen }) {
 
   return (
     <>
-      <Drawer open={isOpen} onClose={handleClose}>
+      <Drawer
+        open={isOpen}
+        onClose={handleClose}
+        style={{ transition: "transform 1s ease-in-out" }}
+      >
         <Drawer.Header title="MENU" titleIcon={(_) => <></>} />
         <Drawer.Items>
           <Sidebar

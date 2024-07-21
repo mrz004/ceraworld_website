@@ -31,7 +31,7 @@ function LuxuryImageCard({
         <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
           <Link to={link}>
             <div className="img-container w-full sm:w-[50vmin] 2xl:w-[70vmin] rounded-md overflow-hidden">
-              <img className="w-full" src={imgSrc} alt={imgAlt} />
+              <img className="w-full object-cover" src={imgSrc} alt={imgAlt} />
             </div>
           </Link>
         </ScrollAnimation>
@@ -39,7 +39,7 @@ function LuxuryImageCard({
         <div>
           <Link to={link}>
             <div className="img-container w-full sm:w-[50vmin] 2xl:w-[70vmin] rounded-md overflow-hidden">
-              <img className="w-full" src={imgSrc} alt={imgAlt} />
+              <img className="w-full object-cover" src={imgSrc} alt={imgAlt} />
             </div>
           </Link>
         </div>
