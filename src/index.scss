@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: vogou;
+  src: url("./fonts/vogou/vogue.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: montserrat;
+  src: url("./fonts/montserrat/Montserrat-Regular.ttf") format("truetype"),
+    url("./fonts/montserrat/Montserrat-Bold.ttf") format("truetype");
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --body-bg-color: #fafafa;
+  --section-bg-color: #d5d3c1;
+  --text-primary-color: #1d1d1d;
+  --text-secondary-color: #0f2e4c;
+  --color-theme-black: #1d1d1d;
+  --color-theme-white: #fafafa;
+  --color-theme-pale: #d5d3c1;
+  --color-theme-blue: #0f2e4c;
+  --color-theme-tail: #43656e;
+  --font-heading: vogou, serif;
+  --font-body: montserrat, serif;
+}
+
+html,
+body {
+  background-color: var(--body-bg-color);
+  font-family: var(--font-body);
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+section {
+  background-color: var(--section-bg-color);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}

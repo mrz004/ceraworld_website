@@ -1,0 +1,34 @@
+.auto-scroll-carousel {
+  $transition-duration: 1s;
+
+  display: grid;
+  grid-template-areas: "a";
+  overflow: hidden;
+
+  & > * {
+    grid-area: a;
+  }
+
+  & .overlay {
+    width: 100%;
+    height: 100%;
+
+    a {
+      transition: color $transition-duration ease-in-out;
+    }
+  }
+
+  & img {
+    filter: brightness(0.9);
+    transition: filter $transition-duration ease-in-out;
+  }
+
+  &:hover {
+    img {
+      filter: brightness(0.5);
+    }
+    .overlay a {
+      color: var(--color-theme-pale);
+    }
+  }
+}

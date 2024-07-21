@@ -1,0 +1,31 @@
+.luxury-image-card {
+  img {
+    $transition-val: transform 1s ease-in-out, filter 500ms ease;
+    transition: $transition-val;
+    &:hover {
+      transform: scale(1.1);
+      filter: brightness(95%);
+      transition: $transition-val;
+    }
+  }
+
+  .img-container {
+    img {
+      aspect-ratio: 1;
+    }
+  }
+
+  & > .text {
+    & > .title {
+    }
+
+    & > .link {
+      padding: 0.7rem 0.5rem;
+      background-color: white;
+      width: fit-content;
+    }
+  }
+
+  &:hover {
+  }
+}

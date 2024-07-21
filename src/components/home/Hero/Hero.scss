@@ -1,0 +1,7 @@
+.hero {
+  grid-template-areas: "a";
+
+  & > * {
+    grid-area: a;
+  }
+}

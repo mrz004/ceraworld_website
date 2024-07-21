@@ -1,0 +1,14 @@
+.video-bg-container {
+  display: grid;
+  grid-template-areas: "a";
+  & > * {
+    grid-area: a;
+    inset: 0;
+  }
+
+  & > .overlay {
+    backdrop-filter: brightness(70%);
+    display: grid;
+    place-items: center;
+  }
+}

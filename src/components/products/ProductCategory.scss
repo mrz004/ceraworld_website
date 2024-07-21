@@ -1,0 +1,10 @@
+.product-collection {
+}
+.background_image {
+  display: grid;
+  grid-template-areas: "a";
+
+  & > * {
+    grid-area: a;
+  }
+}
