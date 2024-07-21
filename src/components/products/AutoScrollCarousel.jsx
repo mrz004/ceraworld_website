@@ -4,9 +4,9 @@ import "./AutoScrollCarousel.scss";
 
 function AutoScrollCarousel({ images, link, linkText }) {
   return (
-    <div className="auto-scroll-carousel py-6 px-8 place-items-center overflow-hidden isolate">
+    <div className="auto-scroll-carousel place-items-center overflow-hidden isolate">
       <Carousel
-        className="h-56 sm:h-64 xl:h-80 2xl:h-96"
+        className="h-56 sm:h-64 xl:h-80 2xl:h-96 rounded-none"
         indicators={false}
         leftControl={<></>}
         rightControl={<></>}
@@ -21,7 +21,7 @@ function AutoScrollCarousel({ images, link, linkText }) {
         ))}
       </Carousel>
       {link && (
-        <div className="overlay grid place-items-center  rounded-md">
+        <div className="overlay grid place-items-center">
           <Link
             to={link}
             className="text-theme-white text-2xl sm:text-4xl xl:text-6xl font-semibold z-10"
