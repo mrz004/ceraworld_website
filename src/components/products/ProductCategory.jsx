@@ -1,44 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { titleCase } from "../../utils/functions";
 import LuxuryGallery from "../home/LuxuryImageGallery/LuxuryGallery";
 import BGImage from "./BGImage";
 import "./ProductCategory.scss";
 import img1 from "/product_collections/furniture/dining_tables/img_1.jpg";
-import img2 from "/product_collections/furniture/massage_chairs/img_1.jpg";
-import img3 from "/product_collections/furniture/sofas/img_1.jpg";
 import bgImage from "/product_collections/sofa_bg.jpg";
 
 function ProductCategory() {
-  const { category } = useParams();
+  const { product } = useParams();
 
-  const images = [
-    {
-      title: "Dining Tables",
-      text: "",
-      src: img1,
-      link: "dining table",
+  const [productData, setProductData] = useState(null);
+
+  useEffect(
+    (_) => {
+      if (productData) return;
+      fetch(`http://localhost:3000/api/get/products/${product}`)
+        .then((res) => res.json())
+        .then((data) =>
+          setProductData({
+            title: data.name,
+            bgImage: "http://localhost:3000/" + data.bannerImage,
+            images: data.categories.map((cat) => ({
+              title: cat.name,
+              src: "http://localhost:3000/" + cat.featureImage,
+              link: cat._id,
+              text: "",
+            })),
+          })
+        )
+        .catch((err) => console.error(err));
     },
-    {
-      title: "Massage Chairs",
-      text: "",
-      src: img2,
-      link: "massage chairs",
-    },
-    {
-      title: "Sofas",
-      text: "",
-      src: img3,
-      link: "sofas",
-    },
-  ];
+    [product]
+  );
 
   return (
     <section className="product-category">
-      <BGImage imgSrc={bgImage} imgAlt={bgImage}>
-        <h1> {titleCase(category)}</h1>
-      </BGImage>
-      <LuxuryGallery margin="sm" items={images} addSeparator={false} />
+      {productData && (
+        <>
+          <BGImage imgSrc={productData.bgImage} imgAlt={productData.bgImage}>
+            <h1> {titleCase(productData.title)}</h1>
+          </BGImage>
+          <LuxuryGallery
+            margin="sm"
+            items={productData.images}
+            addSeparator={false}
+          />
+        </>
+      )}
     </section>
   );
 }

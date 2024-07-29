@@ -10,7 +10,7 @@ export default function Component({ isOpen, setIsOpen }) {
   const items = [
     { name: "Home", link: "/", icon: FaHome },
     { name: "About", link: "/about", icon: MdGroups },
-    { name: "Products", link: "/products/furniture", icon: AiFillProduct },
+    { name: "Products", link: "/products", icon: AiFillProduct },
     { name: "Contact Us", link: "/contact-us", icon: PiPlugsConnectedFill },
   ];
 

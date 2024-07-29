@@ -1,9 +1,0 @@
-.nav-sidebar {
-  $animation-duration: 1s;
-  $animation-timing-function: ease-out;
-  transition: position $animation-duration $animation-timing-function,
-    left $animation-duration $animation-timing-function;
-  &.active {
-    left: 0;
-  }
-}

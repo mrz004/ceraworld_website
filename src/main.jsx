@@ -14,21 +14,21 @@ import Contact from "./components/contact/Contact";
 import ProductCategory from "./components/products/ProductCategory";
 import ProductCollections from "./components/products/ProductCollection.jsx";
 import ProductGallery from "./components/products/ProductGallery.jsx";
+import Products from "./components/products/Products.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="" element={<Home />} />
       <Route path="contact-us" element={<Contact />} />
-      <Route path="products/:category" element={<ProductCategory />} />
+      <Route path="products" element={<Products />} />
+      <Route path="products/:product" element={<ProductCategory />} />
       <Route
-        path="products/:category/:collection"
+        path="products/:product/:category"
         element={<ProductCollections />}
-      />
-      <Route
-        path="products/:category/:collection/view"
-        element={<ProductGallery />}
-      />
+      >
+        <Route path="view" element={<ProductGallery />} />
+      </Route>
     </Route>
   )
 );

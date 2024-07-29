@@ -1,0 +1,34 @@
+@mixin stack-element {
+  display: grid;
+  grid-template-areas: "a";
+  place-items: center;
+  & > * {
+    grid-area: a;
+  }
+}
+
+.product-card {
+  @include stack-element;
+
+  // .inner-card {
+  //   @include stack-element();
+  //   transform-style: preserve-3d;
+  //   transition: transform 1s ease-in-out;
+  //   // backface-visibility: hidden;
+
+  //   .front-face {
+  //     // backface-visibility: hidden;
+  //   }
+
+  //   .back-face {
+  //     backface-visibility: hidden;
+  //     transform: rotateY(180deg);
+  //   }
+  // }
+
+  // &:hover {
+  //   .inner-card {
+  //     transform: rotateY(180deg);
+  //   }
+  // }
+}
