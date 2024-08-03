@@ -2,13 +2,21 @@ import { useEffect, useState } from "react";
 import BGImage from "./BGImage";
 import Card from "./ProductCard";
 import img1 from "/products/sanitaryware.jpg";
+import API_Config from "../../config/api";
 
 function Products() {
   const [products, setProducts] = useState([]);
 
   useEffect((_) => {
     // if (products && products.length) return;
-    fetch("http://localhost:3000/api/get/products")
+    const url = new URL(API_Config.URI);
+    url.pathname = "/api/get/products";
+    console.log(url.href);
+    fetch(url, {
+      headers: {
+        authorization: API_Config.API_KEY,
+      },
+    })
       .then((res) => res.json())
       .then((data) =>
         setProducts(

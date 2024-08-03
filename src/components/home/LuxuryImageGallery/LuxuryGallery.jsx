@@ -1,8 +1,7 @@
 import React from "react";
-import { v4 as getId } from "uuid";
-import LuxuryImageCard from "./LuxuryImageCard";
 import Separator from "../utils/Separator";
 import "./LuxuryGallery.scss";
+import LuxuryImageCard from "./LuxuryImageCard";
 
 function LuxuryGallery({ items, margin, animate, addSeparator = true }) {
   return (

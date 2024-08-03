@@ -1,8 +1,2 @@
 .contact-us {
-  display: grid;
-  // place-items: center;
-  grid-template-areas: "a";
-  & > * {
-    grid-area: a;
-  }
 }

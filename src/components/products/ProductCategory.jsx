@@ -4,8 +4,7 @@ import { titleCase } from "../../utils/functions";
 import LuxuryGallery from "../home/LuxuryImageGallery/LuxuryGallery";
 import BGImage from "./BGImage";
 import "./ProductCategory.scss";
-import img1 from "/product_collections/furniture/dining_tables/img_1.jpg";
-import bgImage from "/product_collections/sofa_bg.jpg";
+import API_Config from "../../config/api";
 
 function ProductCategory() {
   const { product } = useParams();
@@ -14,10 +13,16 @@ function ProductCategory() {
 
   useEffect(
     (_) => {
-      if (productData) return;
-      fetch(`http://localhost:3000/api/get/products/${product}`)
+      const url = new URL(API_Config.URI);
+      url.pathname = `api/get/products/${product}`;
+      console.log(url.href);
+      fetch(url, {
+        headers: {
+          authorization: API_Config.API_KEY,
+        },
+      })
         .then((res) => res.json())
-        .then((data) =>
+        .then((data) => {
           setProductData({
             title: data.name,
             bgImage: "http://localhost:3000/" + data.bannerImage,
@@ -27,8 +32,8 @@ function ProductCategory() {
               link: cat._id,
               text: "",
             })),
-          })
-        )
+          });
+        })
         .catch((err) => console.error(err));
     },
     [product]

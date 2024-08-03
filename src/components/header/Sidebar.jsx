@@ -20,6 +20,7 @@ export default function Component({ isOpen, setIsOpen }) {
         open={isOpen}
         onClose={handleClose}
         style={{ transition: "transform 1s ease-in-out" }}
+        className="sm:w-1/3"
       >
         <Drawer.Header title="MENU" titleIcon={(_) => <></>} />
         <Drawer.Items>

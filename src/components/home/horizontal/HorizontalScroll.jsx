@@ -53,7 +53,7 @@ const HorizontalScrollCarousel = () => {
       >
         <motion.div style={{ x }} className="flex gap-12">
           {cards.map((img) => {
-            return <Card imgPath={img} key={img} />;
+            return <Card imgPath={img} key={img} text="Text" />;
           })}
         </motion.div>
       </motion.div>

@@ -62,3 +62,11 @@ section {
 .font-body {
   font-family: var(--font-body);
 }
+
+.stacked-elements {
+  display: grid;
+  grid-template-areas: "a";
+  & > * {
+    grid-area: a;
+  }
+}

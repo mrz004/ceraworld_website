@@ -1,14 +1,8 @@
 import React, { createContext, useEffect, useState } from "react";
-import bg_img from "/product_collections/furniture/dining_tables/img_1.jpg";
-import desc_img from "/product_collections/furniture/dining_tables/img_2.jpg";
-import img_1 from "/product_collections/furniture/dining_tables/img_3.jpg";
-import img_2 from "/product_collections/furniture/dining_tables/img_4.jpg";
-import img_3 from "/product_collections/furniture/dining_tables/img_5.jpg";
-import img_4 from "/product_collections/furniture/dining_tables/img_6.jpg";
-import BGImage from "./BGImage";
-import { useParams, useLocation, Outlet } from "react-router-dom";
-import DescriptionCard from "./DescriptionCard";
+import { Outlet, useLocation, useParams } from "react-router-dom";
 import AutoScrollCarousel from "./AutoScrollCarousel";
+import BGImage from "./BGImage";
+import DescriptionCard from "./DescriptionCard";
 
 export const imageCollectionContext = createContext();
 
