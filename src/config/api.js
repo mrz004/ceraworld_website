@@ -1,5 +1,5 @@
 const API_Config = {
-  URI: "http://localhost:3000",
+  URI: "https://api.ceraworldchandwani.com",
   API_KEY: "",
 };
 

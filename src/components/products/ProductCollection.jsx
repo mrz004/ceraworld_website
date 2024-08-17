@@ -3,6 +3,7 @@ import { Outlet, useLocation, useParams } from "react-router-dom";
 import AutoScrollCarousel from "./AutoScrollCarousel";
 import BGImage from "./BGImage";
 import DescriptionCard from "./DescriptionCard";
+import API_Config from "../../config/api";
 
 export const imageCollectionContext = createContext();
 
@@ -13,24 +14,29 @@ function ProductCollections() {
   const [imageCollection, setImageCollection] = useState([]);
   useEffect(
     (_) => {
-      fetch(`http://localhost:3000/api/get/categories/${category}`)
+      const url = new URL(API_Config.URI);
+      url.pathname = `api/get/categories/${category}`;
+      fetch(url)
         .then((res) => res.json())
         .then((data) => {
           setCategoryData({
             name: data.name,
             description: data.description,
-            bannerImage: "http://localhost:3000/" + data.bannerImage,
-            featureImage: "http://localhost:3000/" + data.featureImage,
+            bannerImage: "http://" + url.hostname + "/" + data.bannerImage,
+            featureImage: "http://" + url.hostname + "/" + data.featureImage,
+            video: data.video,
           });
           setImageCollection(
-            data.imageCollection.map((img) => "http://localhost:3000/" + img)
+            data.imageCollection.map(
+              (img) => "http://" + url.hostname + "/" + img
+            )
           );
         })
         .catch((err) => console.error(err));
     },
     [category]
   );
-  console.log(categoryData);
+  // console.log(categoryData);
   return (
     categoryData && (
       <section>
@@ -46,6 +52,15 @@ function ProductCollections() {
               imgSrc={categoryData.featureImage}
               imgAlt={categoryData.featureImage}
               text={categoryData.description}
+            />
+            <iframe
+              className="mx-auto my-8"
+              src={categoryData.video}
+              title="Category Video"
+              frameBorder={0}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
             />
 
             <AutoScrollCarousel

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import BGImage from "./BGImage";
 import Card from "./ProductCard";
 import img1 from "/products/sanitaryware.jpg";
@@ -6,9 +6,11 @@ import API_Config from "../../config/api";
 
 function Products() {
   const [products, setProducts] = useState([]);
+  const isLoaded = useRef(false);
 
   useEffect((_) => {
-    // if (products && products.length) return;
+    if (isLoaded.current) return;
+    isLoaded.current = true;
     const url = new URL(API_Config.URI);
     url.pathname = "/api/get/products";
     console.log(url.href);
@@ -23,7 +25,7 @@ function Products() {
           data.map((p) => ({
             id: p._id,
             title: p.name,
-            imgSrc: "http://localhost:3000/" + p.featureImage,
+            imgSrc: "https://" + url.hostname + "/" + p.featureImage,
             link: p._id,
           }))
         )

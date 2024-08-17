@@ -35,6 +35,11 @@
   --font-body: montserrat, serif;
 }
 
+*::selection {
+  background-color: color-mix(in srgb, var(--color-theme-tail), #ffffff80);
+  color: var(--color-theme-white);
+}
+
 html,
 body {
   background-color: var(--body-bg-color);

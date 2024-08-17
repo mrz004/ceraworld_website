@@ -25,10 +25,10 @@ function ProductCategory() {
         .then((data) => {
           setProductData({
             title: data.name,
-            bgImage: "http://localhost:3000/" + data.bannerImage,
+            bgImage: "http://" + url.hostname + "/" + data.bannerImage,
             images: data.categories.map((cat) => ({
               title: cat.name,
-              src: "http://localhost:3000/" + cat.featureImage,
+              src: "http://" + url.hostname + "/" + cat.featureImage,
               link: cat._id,
               text: "",
             })),

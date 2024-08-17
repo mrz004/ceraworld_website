@@ -1,3 +1,4 @@
+import React from "react";
 import { Drawer, Sidebar } from "flowbite-react";
 import { AiFillProduct } from "react-icons/ai";
 import { FaHome } from "react-icons/fa";
@@ -19,10 +20,10 @@ export default function Component({ isOpen, setIsOpen }) {
       <Drawer
         open={isOpen}
         onClose={handleClose}
-        style={{ transition: "transform 1s ease-in-out" }}
-        className="sm:w-1/3"
+        style={{ transition: "transform .7s ease-in-out" }}
+        // className="sm:w-1/3"
       >
-        <Drawer.Header title="MENU" titleIcon={(_) => <></>} />
+        <Drawer.Header title="" titleIcon={(_) => React.Fragment} />
         <Drawer.Items>
           <Sidebar
             aria-label="Sidebar with multi-level dropdown example"
@@ -37,8 +38,9 @@ export default function Component({ isOpen, setIsOpen }) {
                         key={"sidebar-" + item.link}
                         as={Link}
                         to={item.link}
-                        icon={item.icon}
+                        // icon={item.icon}
                         onClick={(_) => setIsOpen(false)}
+                        className="text-[1.5em] font-body"
                       >
                         {item.name}
                       </Sidebar.Item>

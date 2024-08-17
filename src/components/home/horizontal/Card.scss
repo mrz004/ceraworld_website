@@ -1,13 +1,15 @@
 .HorizontalScrollCard {
-  $transition-duration: 0.3s;
+  $transition-duration: 0.7s;
+  $transition-function: ease-out;
   .text {
-    transition: opacity $transition-duration ease;
+    transition: opacity $transition-duration $transition-function;
+    opacity: 0%;
   }
 
   &:hover {
     .text {
-      transition: opacity $transition-duration ease;
-      opacity: 1;
+      transition: opacity $transition-duration $transition-function;
+      opacity: 100%;
     }
   }
 }

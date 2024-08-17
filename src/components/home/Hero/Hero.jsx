@@ -1,6 +1,6 @@
 import React from "react";
 import VideoBackground from "../VideoBackground/VideoBackground";
-import bg_video from "/hero_video.mp4";
+import bg_video from "/hero_video.webm";
 import { FaChevronDown } from "react-icons/fa6";
 import "./Hero.scss";
 
@@ -15,7 +15,7 @@ function Hero() {
           <span
             className="self-end pb-4 w-fit mx-auto xl:text-xl cursor-pointer hover:underline underline-offset-4 relative"
             onClick={(_) => {
-              window.scrollTo(0, 0.95 * window.innerHeight);
+              scrollTo(0, 0.95 * window.innerHeight);
             }}
           >
             {/* Explore More */}

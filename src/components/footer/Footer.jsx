@@ -19,17 +19,18 @@ export default function () {
               <Footer.Link as={Link} to="#">
                 Sitemap
               </Footer.Link>
-              <Footer.Link as={Link} to="#">
+              <Footer.Link as={Link} to="about">
                 About
               </Footer.Link>
-              <Footer.Link as={Link} to="#">
+              <Footer.Link as={Link} to="contact-us">
                 Contact
               </Footer.Link>
-              <Footer.Link as={Link} to="#">
+              <Footer.Link
+                as={Link}
+                target="_blank"
+                to="https://maps.app.goo.gl/X21pWnQW2ajh5Yvf6"
+              >
                 Locate
-              </Footer.Link>
-              <Footer.Link as={Link} to="#">
-                Privacy
               </Footer.Link>
             </Footer.LinkGroup>
           </div>
@@ -37,14 +38,14 @@ export default function () {
             <Footer.Title title="Social Media" />
             <Footer.LinkGroup col>
               <Footer.Link as={Link} to="#">
-                <Footer.Icon as={Link} to="#" icon={BsInstagram} /> Instagram
+                <Footer.Icon icon={BsInstagram} /> Instagram
               </Footer.Link>
               <Footer.Link as={Link} to="#">
-                <Footer.Icon as={Link} to="#" icon={BsFacebook} />
+                <Footer.Icon icon={BsFacebook} />
                 Facebook
               </Footer.Link>
               <Footer.Link as={Link} to="#">
-                <Footer.Icon as={Link} to="#" icon={BsTwitter} /> Twitter
+                <Footer.Icon icon={BsTwitter} /> Twitter
               </Footer.Link>
             </Footer.LinkGroup>
           </div>

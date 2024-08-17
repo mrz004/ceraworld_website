@@ -1,12 +1,12 @@
 import { useRef } from "react";
 import { motion, useTransform, useScroll } from "framer-motion";
 import Card from "./Card";
-import img1 from "/horizontal/kitchenware.jpg";
-import img2 from "/horizontal/bathware.jpg";
-import img3 from "/horizontal/tiles.jpg";
-import img4 from "/horizontal/sanitaryware.jpg";
-import img5 from "/horizontal/modern_lights.jpg";
-import img6 from "/horizontal/furniture.jpg";
+import img1 from "/horizontal/kitchenware.webp";
+import img2 from "/horizontal/bathware.webp";
+import img3 from "/horizontal/tiles.webp";
+import img4 from "/horizontal/sanitaryware.webp";
+import img5 from "/horizontal/modern_lights.webp";
+import img6 from "/horizontal/furniture.webp";
 
 const HorizontalScrollCarousel = () => {
   const targetRef = useRef(null);
@@ -14,7 +14,14 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   });
 
-  const cards = [img1, img2, img3, img4, img5, img6];
+  const cards = [
+    { src: img1, text: "Kitchenware" },
+    { src: img2, text: "Bathware" },
+    { src: img3, text: "Tiles" },
+    { src: img4, text: "Sanitarywares" },
+    { src: img5, text: "Modern Lights" },
+    { src: img6, text: "Furniture" },
+  ];
   const colors = [
     "#d5d3c1",
     "#825C33",
@@ -34,7 +41,7 @@ const HorizontalScrollCarousel = () => {
   // ];
   // .map((c) => `linear-gradient(transparent, ${c}, transparent)`);
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-70%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["30%", "-70%"]);
   const color = useTransform(
     scrollYProgress,
     Array.from({ length: colors.length }, (val, i) => i / colors.length),
@@ -48,12 +55,15 @@ const HorizontalScrollCarousel = () => {
       className="relative h-[300vh] bg-neutral-900"
     >
       <motion.div
-        style={{ backgroundColor: color }}
+        style={{ backgroundColor: color, position: "sticky" }}
         className="sticky top-0 flex h-screen items-center overflow-hidden"
       >
-        <motion.div style={{ x }} className="flex gap-12">
+        <motion.div
+          style={{ x }}
+          className="flex h-[60svh] justify-evenly gap-[20vmin]"
+        >
           {cards.map((img) => {
-            return <Card imgPath={img} key={img} text="Text" />;
+            return <Card imgPath={img.src} key={img.src} text={img.text} />;
           })}
         </motion.div>
       </motion.div>
