@@ -3,35 +3,40 @@ import BGImage from "./BGImage";
 import Card from "./ProductCard";
 import img1 from "/products/sanitaryware.jpg";
 import API_Config from "../../config/api";
+import { useSearchParams } from "react-router-dom";
 
 function Products() {
   const [products, setProducts] = useState([]);
+  const [query, setQuery] = useSearchParams();
   const isLoaded = useRef(false);
 
-  useEffect((_) => {
-    if (isLoaded.current) return;
-    isLoaded.current = true;
-    const url = new URL(API_Config.URI);
-    url.pathname = "/api/get/products";
-    console.log(url.href);
-    fetch(url, {
-      headers: {
-        authorization: API_Config.API_KEY,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) =>
-        setProducts(
-          data.map((p) => ({
-            id: p._id,
-            title: p.name,
-            imgSrc: "https://" + url.hostname + "/" + p.featureImage,
-            link: p._id,
-          }))
+  useEffect(
+    (_) => {
+      if (isLoaded.current) return;
+      isLoaded.current = true;
+      const url = new URL(API_Config.URI);
+      url.pathname = "/api/get/products";
+      console.log(url.href);
+      fetch(url, {
+        headers: {
+          authorization: API_Config.API_KEY,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) =>
+          setProducts(
+            data.map((p) => ({
+              id: p._id,
+              title: p.name,
+              imgSrc: "https://" + url.hostname + "/" + p.featureImage,
+              link: p._id,
+            }))
+          )
         )
-      )
-      .catch((err) => console.error(err));
-  }, []);
+        .catch((err) => console.error(err));
+    },
+    [query]
+  );
 
   return (
     <>
